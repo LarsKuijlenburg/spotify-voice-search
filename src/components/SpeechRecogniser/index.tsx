@@ -1,6 +1,7 @@
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
+import { Container, ButtonContainer, Button } from "./styles";
 
 interface Props {
   onSpeechEnd: (spokenText: string) => void;
@@ -33,12 +34,14 @@ const SpeechRecogniser = ({ onSpeechEnd }: Props) => {
   }
 
   return (
-    <div>
-      <p>{listening ? "on" : "off"}</p>
-      <button onClick={startListening}>Start listening</button>
-      <button onClick={stopListening}>Stop listening</button>
-      <button onClick={reset}>Reset transcription</button>
-    </div>
+    <Container>
+      <p>Microphone {listening ? "on" : "off"}</p>
+      <ButtonContainer>
+        <Button onClick={startListening}>Start listening</Button>
+        <Button onClick={stopListening}>Stop listening</Button>
+        <Button onClick={reset}>Reset transcription</Button>
+      </ButtonContainer>
+    </Container>
   );
 };
 
