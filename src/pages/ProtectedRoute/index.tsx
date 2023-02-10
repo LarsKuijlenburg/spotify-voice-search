@@ -10,10 +10,6 @@ const ProtectedRoute = ({ children }: Props) => {
   const { tokens } = useAuth();
 
   const tokenIsValid = useMemo(() => {
-    console.log(tokens && tokens?.expires_at > Date.now());
-    console.log("token expiry date", tokens?.expires_at);
-    console.log("current date", Date.now());
-
     return tokens && tokens.expires_at > Date.now();
   }, [tokens]);
 

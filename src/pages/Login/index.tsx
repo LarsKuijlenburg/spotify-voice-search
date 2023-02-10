@@ -1,5 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
 import { v4 } from "uuid";
 import { getLoginUrl } from "../../api/queries";
 

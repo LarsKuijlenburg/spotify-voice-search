@@ -1,3 +1,5 @@
+import { AccessTokenResponse, SearchResponse } from "./types";
+
 export const getLoginUrl = (state: string) => {
   const parameters = {
     response_type: "code",
@@ -20,7 +22,9 @@ const createQueryString = (params: { [key: string]: string }) => {
     .join("&");
 };
 
-export const getAccessCode = async (code: string) => {
+export const getAccessCode = async (
+  code: string
+): Promise<AccessTokenResponse> => {
   const parameters = {
     code: code,
     grant_type: "authorization_code",
@@ -38,7 +42,10 @@ export const getAccessCode = async (code: string) => {
   }).then((response) => response.json());
 };
 
-export const search = async (query: string, accessKey: string) => {
+export const search = async (
+  query: string,
+  accessKey: string
+): Promise<SearchResponse> => {
   return await fetch(
     `https://api.spotify.com/v1/search?q=${query}&type=track,album,artist`,
     {
