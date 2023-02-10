@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { search } from "../../api/queries";
 import SearchResultItem from "../../components/SearchResultItem";
+import SpeechRecogniser from "../../components/SpeechRecogniser";
 import { useAuth } from "../../context/useAuth";
 import useDebounce from "../../hooks/useDebounce";
 
@@ -19,10 +20,15 @@ const Search = () => {
     }
   );
 
+  const onSpeechRecognised = (text: string) => {
+    setQuery(text);
+  };
+
   return (
     <div>
       Search Page
       <input value={query} onChange={(event) => setQuery(event.target.value)} />
+      <SpeechRecogniser onSpeechEnd={onSpeechRecognised} />
       <h2>Albums</h2>
       {data &&
         data.albums.items.map((album: any) => (
