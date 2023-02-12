@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setup
+In order for this app to work properly, a `.env` file is required in the root of this repository. An example of the contents can be found below:
+```
+REACT_APP_SPOTIFY_CLIENT_ID=my-spotify-client-id
+REACT_APP_SPOTIFY_CLIENT_SECRET=my-spotify-client-secret
+REACT_APP_SPOTIFY_REDIRECT_URL=http://localhost:3000/callback (this should be fine for locally running it, as long as your react port is set to the default 3000)
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
